@@ -1,0 +1,131 @@
+\ProvidesPackage{ffhs-config}
+%<formatting>
+ %<font>
+ \RequirePackage[scaled]{helvet}
+ \RequirePackage[utf8]{inputenc}
+ \RequirePackage[T1]{fontenc}
+ \renewcommand\familydefault{\sfdefault}
+ %</font>
+ %<page-formatting>
+  % setting page layout
+  \RequirePackage[
+   left=3cm,
+   right=2.5cm,
+   top=3cm,
+   bottom=2.5cm
+  ]{geometry} %used for page layout
+  
+  \RequirePackage[bottom]{footmisc} %puts the footnote at the bottom of the page
+
+  \RequirePackage[onehalfspacing]{setspace} % sets line height
+ %</page-formatting>
+ 
+ %<headings-formatting>
+    \addtokomafont{chapter}{\normalfont\fontsize{16}{12}\bfseries}
+    \addtokomafont{section}{\normalfont\fontsize{14}{12}\bfseries}
+    \addtokomafont{subsection}{\normalfont\fontsize{13}{12}\bfseries}
+    \addtokomafont{subsubsection}{\normalfont\fontsize{12}{12}\bfseries}
+
+    % Spacing around headings (https://tex.stackexchange.com/questions/223508/adjusting-spacing-around-section-subsection-titles-with-koma-script)
+    \RedeclareSectionCommands[
+        beforeskip=12pt,
+        afterskip=.5\baselineskip,
+        afterindent=false
+        ]{chapter,section,subsection,subsubsection}
+    % \RedeclareSectionCommand[
+    %     runin=true,
+    %     %afterindent=false,
+    %     beforeskip=.5\baselineskip,
+    %     afterskip=1em]{paragraph}
+    % \RedeclareSectionCommand[
+    %     runin=true,
+    %     %afterindent=false,
+    %     beforeskip=.5\baselineskip,
+    %     afterskip=1em]{subparagraph}
+ %</headings-formatting>
+ 
+ %<table-formatting>
+  \RequirePackage{tabularx} %used for formatting in a table
+  \RequirePackage{booktabs} %used for table formatting
+  % Setting padding between text and cell border
+  \setlength{\tabcolsep}{6pt}
+  % Setting table row height (value is multiplied with default height)
+  \renewcommand{\arraystretch}{1.2}
+  % centered same width columns
+  \newcolumntype{C}{>{\centering}X}
+ %</table-formatting>
+ 
+ %<syntax-highlighting>
+  \RequirePackage{minted} %used for code syntax highlighting
+  \RequirePackage{xcolor}
+  \RequirePackage{soul}
+  \definecolor{minted_bg}{rgb}{0.97, 0.97, 0.97}
+  \setminted{
+   bgcolor=minted_bg,
+   xleftmargin=\parindent ,
+   fontsize=\small ,
+   frame=lines,
+   framesep=2mm,
+   linenos,
+   breaklines,
+   breakanywhere=true,
+   autogobble}
+ %</syntax-highlighting> 
+
+ %<caption-formatting>
+  \RequirePackage{caption}
+  \captionsetup{format=plain, font=small, labelfont=bf, justification=centering}  
+ %</caption-formatting>  
+  
+ %<graphics-formatting>
+  \RequirePackage{graphicx} %used for image inserting / formatting
+  \RequirePackage{wrapfig} % used for wrapping text around a figure
+   \graphicspath{ {resources/images/} }
+  \RequirePackage[section]{placeins} %used to block image floating with \FloatBarrier
+  \RequirePackage{subcaption} % used to put images in a grid
+ %</graphics-formatting>
+%</formatting>
+
+%<packages>
+ \RequirePackage[main=ngerman, english]{babel}
+ \RequirePackage{hyperref} %used to make references clickable
+ \RequirePackage[backend=biber,style=apa]{biblatex} % add bibliography
+    \DeclareLanguageMapping{ngerman}{ngerman-apa}
+    \addbibresource{resources/bibliography.bib}
+ \RequirePackage{csquotes} % used for biber
+ 
+ \RequirePackage{import} % used for large document management
+%</packages>
+
+%<debug-packages>
+% \RequirePackage{showframe} %This line can be used to clearly show the new margins
+%</debug-packages>
+
+%<command-overrides>
+ \newcommand{\comment}[1]{}
+%</command-overrides>
+
+%<environments>
+\newenvironment{abkuerzungen}[1][WWWWW]{
+    \chapter*{Abkürzungen}
+    \addcontentsline{toc}{chapter}{Abkürzungen}
+    \begin{labeling}{#1}
+}{\end{labeling}}
+
+\newenvironment{zusammenfassung}{
+    \begingroup
+    \let\clearpage\relax
+    \chapter*{Zusammenfassung}
+    \endgroup
+    \noindent
+}{}
+
+\renewenvironment{abstract}{
+    \selectlanguage\english 
+    \begingroup
+    \let\clearpage\relax
+    \chapter*{Abstract}
+    \endgroup
+    \noindent
+}{}
+%</environments>

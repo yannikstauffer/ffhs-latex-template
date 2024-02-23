@@ -1,0 +1,28 @@
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+%Vorlage fuer Thesen an der FFHS
+\documentclass[11pt,a4paper,bibliography=totoc,listof=totoc]{scrreprt}
+\ProcessOptions\relax
+
+\usepackage{ffhs-config}
+
+\author{NAME DES AUTORS}
+\title{TITEL DER ARBEIT}
+\subtitle{UNTERTITEL DER ARBEIT}
+\date{\today}
+
+\begin{document}
+
+\pagenumbering{roman}
+
+\include{FFHS-Paper-00-Title-Page}
+\include{FFHS-Paper-01-Abstract}
+\include{FFHS-Paper-02-TOC-Abbreviations}
+
+\newpage\pagenumbering{arabic}\setcounter{page}{1}
+\include{FFHS-Paper-03-Content}
+
+\include{FFHS-Paper-04-Bibliography}
+\include{FFHS-Paper-05-Appendix}
+
+
+\end{document}

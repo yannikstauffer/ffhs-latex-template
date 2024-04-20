@@ -1,3 +1,5 @@
+![Build LaTeX PDF](https://github.com/yannikstauffer/ffhs-latex-template/actions/workflows/build-pdf.yml/badge.svg)
+
 # FFHS Latex Template
 
 Nutzung auf eigene Verantwortung - die Korrektheit wurde in keiner Form bestätigt.

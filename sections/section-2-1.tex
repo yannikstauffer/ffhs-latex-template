@@ -1,3 +1,14 @@
-\section{Def}
+\section{Einbindung von Code}
 
-1 und 1 ist elf \parencite[vgl.][16, 136, 156-157]{dirac}.
+\begin{longlisting}
+\begin{minted}{bash}
+cd ~/scripts
+mv test.sh.bck test.sh
+./test.sh
+\end{minted}
+\caption{Testscript ausführen}
+\label{list:testscript}
+\end{longlisting}
+\FloatBarrier
+
+Listing \ref{list:testscript} zeigt das Einbinden eines Bash-Scripts. Mittels \mintinline{bash}{rm test.sh} kann das Script gelöscht werden. Minted erlaubt Syntax-Highlighting für verschiedenste Programmier- und Scriptsprachen.

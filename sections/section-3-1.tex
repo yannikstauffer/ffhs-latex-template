@@ -1,3 +1,22 @@
-\section{Ghi}
+\section{Tabelle erstellen}
 
-1 und 1 ist elf \parencite[vgl.][16, 136, 156-157]{dirac}.
+\begin{table}
+\centering
+\begin{tabularx}{\linewidth}{@{} | L | L | L | L | @{}}
+    \hline 
+    \thead{Dateiname} & \thead{Verfügbare Spalten}  & \thead{Anzahl Datensätze \& \newline Grösse der Datei} \\
+    \hline
+    Accelerometer.csv       & Time (s) & 250'459 \\
+                            & X (m/s\textasciicircum2) & 14.5MB \\ 
+                            & Y (m/s\textasciicircum2) & \\ 
+                            & Z (m/s\textasciicircum2) & \\ 
+    \hline
+    Linear Accelerometer.csv & Time (s) & 250'458 \\
+                            & X (m/s\textasciicircum2) & 14.7MB \\ 
+                            & Y (m/s\textasciicircum2) & \\ 
+                            & Z (m/s\textasciicircum2) & \\ 
+    \hline
+\end{tabularx}
+\caption{Übersicht über die Sensordaten}
+\label{table:uebersicht_sensordaten}
+\end{table}

@@ -47,12 +47,18 @@
  %<table-formatting>
   \RequirePackage{tabularx} %used for formatting in a table
   \RequirePackage{booktabs} %used for table formatting
+    \RequirePackage[table]{xcolor} %color management in table
+    
   % Setting padding between text and cell border
   \setlength{\tabcolsep}{6pt}
   % Setting table row height (value is multiplied with default height)
   \renewcommand{\arraystretch}{1.2}
   % centered same width columns
   \newcolumntype{C}{>{\centering}X}
+  \newcolumntype{L}{>{\raggedright\arraybackslash}X} % left bound
+  %Table header
+  \newcommand{\thead}[1]
+    {\textbf{#1}}
  %</table-formatting>
  
  %<syntax-highlighting>
@@ -70,6 +76,7 @@
    breaklines,
    breakanywhere=true,
    autogobble}
+   \newenvironment{longlisting}{\captionsetup{type=listing, belowskip=1em}}{} % allows for pagebreak
  %</syntax-highlighting> 
 
  %<caption-formatting>
@@ -83,6 +90,7 @@
    \graphicspath{ {resources/images/} }
   \RequirePackage[section]{placeins} %used to block image floating with \FloatBarrier
   \RequirePackage{subcaption} % used to put images in a grid
+  \RequirePackage[inkscapelatex=false]{svg} % svg support
  %</graphics-formatting>
 %</formatting>
 
